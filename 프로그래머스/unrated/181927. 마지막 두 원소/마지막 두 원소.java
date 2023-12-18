@@ -1,17 +1,18 @@
+import java.util.*;
+
 class Solution {
     public int[] solution(int[] num_list) {
-        int[] answer = new int[num_list.length + 1];
+        ArrayList<Integer> list = new ArrayList<>();
         
-        int last = num_list[num_list.length - 1];
-        int secondFromLast = num_list[num_list.length - 2];
-        
-        int adding = last > secondFromLast ? last - secondFromLast : last * 2;
-        
-        for (int i = 0; i < answer.length - 1; i++) {
-            answer[i] = num_list[i];
+        for (int num :num_list) {
+            list.add(num);
         }
-        answer[num_list.length] = adding;
         
-        return answer;
+        int last = list.get(num_list.length - 1);
+        int secondFromLast = list.get(num_list.length - 2);
+        
+        list.add(last > secondFromLast ? last - secondFromLast : last * 2);
+        
+        return list.stream().mapToInt(Integer::intValue).toArray();
     }
 }
