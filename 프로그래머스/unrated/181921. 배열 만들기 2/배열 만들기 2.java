@@ -4,7 +4,11 @@ class Solution {
     public int[] solution(int l, int r) {
         ArrayList<Integer> answer = new ArrayList<>();
         
-        for (int num = l; num <= r; num++) { 
+        if (l % 5 != 0) {
+            l = (l / 5 + 1) * 5;
+        }
+        
+        for (int num = l; num <= r; num += 5) {            
             if (checkNumber(num)) {
                 answer.add(num);
             } 
