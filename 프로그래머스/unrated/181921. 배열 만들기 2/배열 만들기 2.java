@@ -22,7 +22,7 @@ class Solution {
     }
     
     private boolean checkNumber(int num) {
-        for (char numLetter : (num+"").toCharArray()) {
+        for (char numLetter : String.valueOf(num).toCharArray()) {
             if ((numLetter - '0') % 5 != 0) {
                 return false;
             }  
