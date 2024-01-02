@@ -17,7 +17,7 @@ class Solution {
                 break;
             case 4:
                 ArrayList<Integer> case4 = new ArrayList<Integer>();
-                for (int i = a; i <= b; i += c) {
+                for (int i = a; i <= b; i += c) { // a부터 b까지 c 간격으로
                     case4.add(num_list[i]);
                 }
                 answer = case4.stream().mapToInt(Integer::intValue).toArray();
