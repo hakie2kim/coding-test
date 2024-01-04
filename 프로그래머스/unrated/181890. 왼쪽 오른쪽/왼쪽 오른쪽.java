@@ -5,7 +5,6 @@ class Solution {
         ArrayList<String> answerL = new ArrayList<String>();
         
         // 배열을 하나씩 담으면서 
-        
         for (int i = 0; i < str_list.length; i++) {
             // l이 나오면 담고 있던 배열을 바로 리턴한다.
             if (str_list[i].equals("l")) {
@@ -18,6 +17,14 @@ class Solution {
                 return Arrays.copyOfRange(str_list, i+1, str_list.length);
             }    
         }
+
+        /*for (int i = 0; i < str_list.length; i++) {
+            if ("l".equals(str_list[i])) {
+                return Arrays.copyOfRange(str_list, 0, i);
+            } else if ("r".equals(str_list[i])) {
+                return Arrays.copyOfRange(str_list, i + 1, str_list.length);
+            }
+        }*/
         
         return new String[]{};
     }
