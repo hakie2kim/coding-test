@@ -10,6 +10,6 @@ class Solution {
             }
         }
         
-        return evenIndicesTotal > oddIndicesTotal ? evenIndicesTotal : oddIndicesTotal;
+        return evenIndicesTotal > oddIndicesTotal ? evenIndicesTotal : oddIndicesTotal; // Math.max(evenIndicesTotal, oddIndicesTotal) 사용하면 가독성 좋음
     }
 }
