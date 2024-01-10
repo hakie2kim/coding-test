@@ -1,10 +1,10 @@
 # [level unrated] 문자열이 몇 번 등장하는지 세기 - 181871 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181871?language=java) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181871) 
 
 ### 성능 요약
 
-메모리: 77.5 MB, 시간: 0.04 ms
+메모리: 76.9 MB, 시간: 0.03 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 1월 4일 8:14:38
+2024년 1월 4일 8:17:21
 
 ### 문제 설명
 

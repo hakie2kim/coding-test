@@ -7,6 +7,12 @@ class Solution {
             }
         }
         
+        // for(int i = 0; i < myString.length(); i++) {
+        //     if(myString.substring(i).startsWith(pat)){
+        //         occurrence++;
+        //     }
+        // }
+        
         return occurrence;
     }
 }
