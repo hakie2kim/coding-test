@@ -10,5 +10,7 @@ class Solution {
         }
         
         return answer;
+        
+        // return IntStream.rangeClosed(0, n).filter(value -> value % 2 == 1).toArray();
     }
 }
