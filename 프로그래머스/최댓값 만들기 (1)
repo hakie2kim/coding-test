@@ -1,0 +1,10 @@
+import java.util.*;
+
+class Solution {
+    public int solution(int[] numbers) {
+        // 정렬 후 요소의 맨 뒤 두 값을 곱해서 리턴
+        Arrays.sort(numbers);
+        int size = numbers.length;
+        return numbers[size - 1] * numbers[size - 2];
+    }
+}
