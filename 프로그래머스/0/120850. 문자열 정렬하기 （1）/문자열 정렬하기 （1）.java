@@ -9,8 +9,8 @@ class Solution {
                 answer.add(letter - '0');
         }
         
-        Collections.sort(answer);
+        // Collections.sort(answer);
         
-        return answer.stream().mapToInt(Integer::intValue).toArray();
+        return answer.stream().sorted().mapToInt(Integer::intValue).toArray();
     }
 }
