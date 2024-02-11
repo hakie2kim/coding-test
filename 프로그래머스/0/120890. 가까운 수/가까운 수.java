@@ -4,7 +4,7 @@ class Solution {
     public int solution(int[] array, int n) {
         int[] distance = new int[array.length];
         
-        Arrays.sort(array);
+        Arrays.sort(array); // 가장 가까운 수가 여러 개일 경우 더 작은 수를 return
         
         int minIdx = 0;
         for (int i = 1; i < array.length; i++) {
