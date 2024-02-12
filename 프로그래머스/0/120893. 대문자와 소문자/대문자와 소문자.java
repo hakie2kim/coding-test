@@ -3,6 +3,7 @@ class Solution {
         StringBuilder answer = new StringBuilder();
         
         char[] my_string_to_char_array = my_string.toCharArray();
+        // 'A' = 65, 'a' = 97
         for (char letter : my_string.toCharArray()) {
             if ('A' <= letter && letter <= 'Z') // 대문자일 경우
                 answer.append((char) (letter+32)); // 소문자로 변경
