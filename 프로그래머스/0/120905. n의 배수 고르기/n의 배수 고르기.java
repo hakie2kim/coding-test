@@ -10,5 +10,7 @@ class Solution {
         }
         
         return answer.stream().mapToInt(Integer::intValue).toArray();
+        
+        // return Arrays.stream(numList).filter(value -> value % n == 0).toArray();
     }
 }
