@@ -1,0 +1,22 @@
+class Solution {
+    public String[] solution(String my_str, int n) {
+        int my_str_len = my_str.length();
+        
+        int ansLen = my_str_len/n + (my_str_len % n == 0 ? 0 : 1); // 괄호 안은 나머지가 있는 경우 남은 문자열을 위한 공간 계산
+        
+        String[] answer = new String[ansLen];
+        
+        // start idx / end idx            i
+        // 0         / 6                  0   
+        // 6         / 12                 1
+        // 12        / 16 my_str.length() 2
+        
+        for (int i = 0; i < ansLen; i++) {
+            int start = i * n;
+            int end = (start+n) > my_str_len ? my_str_len : start+n; // answer의 마지막인 경우 my_str의 길이에 맞춤
+            answer[i] = my_str.substring(start, end);
+        }
+        
+        return answer;
+    }
+}
