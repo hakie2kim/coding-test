@@ -5,7 +5,9 @@ class Solution {
     public int solution(int a, int b) {      
         int gcd = getGcdByEuclidsAlgorithm(a, b);
         int bDividedByGcd = b / gcd;
-        
+
+        // 소인수가 2, 5만 있는지 확인
+        // 소인수 2, 5가 아닌 경우 2 리턴 
         while (bDividedByGcd != 1) {
             if (bDividedByGcd % 2 == 0) {
                 bDividedByGcd /= 2;
