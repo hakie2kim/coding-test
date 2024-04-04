@@ -9,12 +9,10 @@ class Solution
         for (char letter : s.toCharArray()) {
             if (sStack.isEmpty()) { // 스택이 비었다면
                 sStack.push(letter);
+            } else if (sStack.peek() == letter) { // 연속된 짝인 경우
+                sStack.pop(); // 스택에 있는 원소 제거
             } else {
-                if (sStack.peek() == letter) { // 연속된 짝인 경우
-                    sStack.pop(); // 스택에 있는 원소 제거
-                } else {
-                    sStack.push(letter);
-                }
+                sStack.push(letter);
             }
                 
         }
