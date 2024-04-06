@@ -1,3 +1,5 @@
+import java.util.*;
+
 class Solution {
     public int[] solution(String s) {
         int[] answer = new int[s.length()];
@@ -13,6 +15,14 @@ class Solution {
                 }
             }
         }
+        
+        // Map<Character, Integer> alphaIdx = new HashMap<>();
+        // for (int i = 0; i < s.length(); i++) {
+        //     char ch = s.charAt(i);
+        //     // 만약 ch가 존재하지 않는 경우 i-i-1: -1
+        //     answer[i] = i - alphaIdx.getOrDefault(ch, i+1);
+        //     alphaIdx.put(ch, i);
+        // }
         
         return answer;
     }
