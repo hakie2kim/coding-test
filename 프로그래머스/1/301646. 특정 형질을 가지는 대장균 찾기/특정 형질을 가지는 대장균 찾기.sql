@@ -1,0 +1,7 @@
+SELECT COUNT(ID) COUNT
+FROM ECOLI_DATA
+WHERE
+    CONV(GENOTYPE, 10, 2) = '1' OR       -- 1번 형질
+    CONV(GENOTYPE, 10, 2) LIKE '%001' OR -- 1번 형질
+    CONV(GENOTYPE, 10, 2) LIKE '%100' OR -- 3번 형질
+    CONV(GENOTYPE, 10, 2) LIKE '%101';   -- 1, 3번 형질
