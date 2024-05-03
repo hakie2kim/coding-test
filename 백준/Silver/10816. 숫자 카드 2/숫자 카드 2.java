@@ -1,39 +1,35 @@
-import java.util.*;
-import java.io.*;
-
-class Main {
-    static int N, M;
-    static Map<Integer, Integer> numbers = new HashMap<>();
-    static StringBuilder answer = new StringBuilder();
-        
-    public static void main(String[] args) throws IOException{
-        // 입력 및 초기화
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        
-        // 상근이의 숫자 카드의 개수
-        N = Integer.parseInt(br.readLine()); 
-        
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        
-        for (int i = 0; i < N; i++) {
-            int currNumber = Integer.parseInt(st.nextToken());
-            numbers.put(currNumber, numbers.getOrDefault(currNumber, 0) + 1);
-        }
-        
-        // 상근이가 숫자 카드를 각각 몇 개 가지고 있는지
-        M = Integer.parseInt(br.readLine()); 
-        
-        st = new StringTokenizer(br.readLine());
-        
-        for (int i = 0; i < M; i++) {
-            int target = Integer.parseInt(st.nextToken());
-            answer.append(numbers.getOrDefault(target, 0) + " ");
-        }
-        
-        System.out.println(answer.toString());
-        
-        bw.close();
-        br.close();
-    }
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+ 
+import java.util.StringTokenizer;
+import java.util.Map;
+import java.util.HashMap;
+ 
+public class Main {
+ 
+	public static void main(String[] args) throws IOException {
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		// 숫자 카드가 각각 몇 개 있는지 확인
+		int N = Integer.parseInt(br.readLine()); // 숫자 카드의 개수
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		Map<Integer, Integer> 숫자_카드의_개수 = new HashMap<>();
+		for (int i = 0; i < N; i++) {
+		    int 숫자_카드 = Integer.parseInt(st.nextToken());
+		    숫자_카드의_개수.put(숫자_카드, 숫자_카드의_개수.getOrDefault(숫자_카드, 0) + 1);
+		}
+		
+		// 각 수가 적힌 숫자 카드를 상근이가 몇 개 가지고 있는지를 공백으로 구분해 출력
+		int M = Integer.parseInt(br.readLine());
+		st = new StringTokenizer(br.readLine());
+		StringBuilder answer = new StringBuilder();
+		for (int i = 0; i < M; i++) {
+		    int 숫자_카드 = Integer.parseInt(st.nextToken());
+		    answer.append(숫자_카드의_개수.getOrDefault(숫자_카드, 0)).append(" ");
+		}
+		System.out.println(answer);
+		
+	}
 }
