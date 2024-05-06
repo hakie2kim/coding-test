@@ -28,7 +28,8 @@ class Solution {
         
         // 2. 각 combs의 value를 오름차순으로 정렬한다.
         for (List<Integer> scores : combs.values()) {
-            scores.sort(null);
+            Collections.sort(scores);
+            // scores.sort(null);
         }
         
         // 3. query 조건에 맞는 지원자를 갖고 온다.
