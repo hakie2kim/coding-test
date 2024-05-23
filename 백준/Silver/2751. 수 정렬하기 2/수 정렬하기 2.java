@@ -20,8 +20,10 @@ public class Main {
 		    nums.add(Integer.parseInt(br.readLine()));
 		}
 		
+		// 정렬
 		Collections.sort(nums);
 		
+		// 출력
 		for (int num : nums) {
 		    sb.append(num).append("\n");
 		}
