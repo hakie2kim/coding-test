@@ -5,27 +5,29 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
  
- 
 public class Main {
 	public static void main(String[] args) throws IOException {
     
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 		
-		int N = Integer.parseInt(br.readLine());
+		/*
+		  -1000000 ~ 1000000
+		  기준점 0 = index 100000 으로 생각
+		*/
+		boolean[] nums = new boolean[2000001];
 		
-		// List 배열로 숫자 초기화
-		List<Integer> nums = new ArrayList<>();
+		// 어떤 수가 존재하는지 알려주는 배열 초기화
+		int N = Integer.parseInt(br.readLine());
 		for (int i = 0; i < N; i++) {
-		    nums.add(Integer.parseInt(br.readLine()));
+		    nums[Integer.parseInt(br.readLine()) + 1000000] = true;
 		}
 		
-		// 정렬
-		Collections.sort(nums);
-		
 		// 출력
-		for (int num : nums) {
-		    sb.append(num).append("\n");
+		for (int i = 0; i < nums.length; i++) {
+		    if (nums[i]) {
+		        sb.append(i-1000000).append("\n");
+		    }
 		}
 	    System.out.println(sb);
 	}
