@@ -1,5 +1,5 @@
 /*
-BufferedReader + toCharArray + Arrays.sort
+BufferedReader + charAt + 카운팅 정렬
 */
  
 import java.io.BufferedReader;
@@ -12,13 +12,16 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         
-        char[] nums = br.readLine().toCharArray();
+        String N = br.readLine();
         
-        Arrays.sort(nums);
+        int[] cnts = new int[10];
+        for (int i = 0; i < N.length(); i++) {
+            cnts[N.charAt(i) - '0']++;
+        }
         
-        int numsLen = nums.length;
-        for (int i = numsLen - 1; i >= 0; i--) {
-            System.out.print(nums[i]);
+        for (int i = 9; i >= 0; i--) {
+            while (cnts[i]-- > 0)
+                System.out.print(i);
         }
 	}
 }
