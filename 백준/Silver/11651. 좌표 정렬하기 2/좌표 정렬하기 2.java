@@ -1,66 +1,38 @@
-import java.util.*;
-import java.io.*;
-
-class Point {
-    int x, y;
-    
-    Point(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-    
-    int getX() {
-        return x;
-    }
-    
-    int getY() {
-        return y;
-    }
-    
-    public String toString() {
-        return String.format("(%d, %d)", x, y);
-    }
-}
-
-class Main {
-    static int N;
-    static Point[] points;
-    
-    public static void main(String[] args) throws IOException {
-        // 입력 및 초기화
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        
-        N = Integer.parseInt(st.nextToken()); // 점의 개수
-        
-        points = new Point[N];
-        for (int i = 0; i < N; i++) {
-            st = new StringTokenizer(br.readLine());
-            
-            int x = Integer.parseInt(st.nextToken());
-            int y = Integer.parseInt(st.nextToken());
-            
-            points[i] = new Point(x, y);
-        }
-        // System.out.println(Arrays.toString(points));
-        
-        Arrays.sort(points, (a, b) -> {
-            // y좌표가 같으면 x좌표가 증가하는 순서로 정렬
-            if (a.getY() == b.getY())
-                return a.getX() - b.getX();
-            // y좌표가 다르면 y좌표가 증가하는 순서로 정렬
-            else
-                return a.getY() - b.getY();
-        });
-        // System.out.println(Arrays.toString(points));
-        
-        for (int i = 0; i < N; i++) {
-            System.out.println(points[i].getX() + " " + points[i].getY());
-        }
-        
-        bw.close();
-        br.close();
-    }
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+import java.io.IOException;
+ 
+public class Main {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int N = Integer.parseInt(br.readLine());
+		
+		int[][] points = new int[N][2];
+		
+		StringTokenizer st;
+		for (int i = 0; i < N; i++) {
+		    st = new StringTokenizer(br.readLine());
+		    
+		    points[i][0] = Integer.parseInt(st.nextToken());
+		    points[i][1] = Integer.parseInt(st.nextToken());
+		}
+		
+		Arrays.sort(points, (p1, p2) -> {
+		   // y좌표가 같은 경우
+		   if (p1[1] == p2[1]) {
+		       return p1[0] - p2[0];
+		   } else {
+		       return p1[1] - p2[1];
+		   }
+		});
+		
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < N; i++) {
+		    sb.append(points[i][0] + " ").append(points[i][1] + "\n");
+		}
+		System.out.println(sb);
+	}
 }
