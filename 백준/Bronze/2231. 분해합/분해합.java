@@ -5,11 +5,12 @@ import java.io.IOException;
 public class Main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int N = Integer.parseInt(br.readLine());
+		String NStr = br.readLine();
+		int N = Integer.parseInt(NStr);
         
         int result = 0;
         // 각 자리 수의 합은 최대 N의 길이 * 9이기 때문에 (N - 최대 N의 길이 * 9) 미만일 수 는 없다.
-        int start = N - String.valueOf(N).length() * 9;
+        int start = N - NStr.length() * 9;
         for (int i = start; i < N; i++) {
             int number = i;
             int sum = 0; // 각 자리 수 합
