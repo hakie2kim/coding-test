@@ -8,7 +8,9 @@ public class Main {
 		int N = Integer.parseInt(br.readLine());
         
         int result = 0;
-        for (int i = 0; i < N; i++) {
+        // 각 자리 수의 합은 최대 N의 길이 * 9이기 때문에 (N - 최대 N의 길이 * 9) 미만일 수 는 없다.
+        int start = N - String.valueOf(N).length() * 9;
+        for (int i = start; i < N; i++) {
             int number = i;
             int sum = 0; // 각 자리 수 합
             
