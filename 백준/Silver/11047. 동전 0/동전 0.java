@@ -4,35 +4,35 @@ import java.io.IOException;
 import java.util.StringTokenizer;
  
 public class Main {
-    static int N, K;
-    static int[] A;
-    static int cnt = 0;
-    
+ 
 	public static void main(String[] args) throws IOException {
+ 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		
-		// 첫번째 줄
-		N = Integer.parseInt(st.nextToken());
-		K = Integer.parseInt(st.nextToken());
+		int N = Integer.parseInt(st.nextToken()); // 동전 종류
+		int K = Integer.parseInt(st.nextToken()); // 가치의 합
 		
-		// 첫번째 줄 이후
-		A = new int[N];
-		for (int i = 0; i < N; i++) {
-		    A[i] = Integer.parseInt(br.readLine());
+		int[] coin = new int[N];
+		
+		for(int i = 0; i < N; i++) {
+			coin[i] = Integer.parseInt(br.readLine());
 		}
 		
-		// 가장 큰 동전부터
-		for (int i = N-1; i >= 0; i--) {
-		    int currA = A[i];
-		    
-		    if (K/currA > 0) {
-		        cnt += K/currA;
-		        K %= currA;;
+		int count = 0;
+		
+		for (int i = coin.length - 1; i >= 0; i--) {
+		    // 현재 동전의 가치가 K보다 작거나 같아야지 구성 가능
+		    if (coin[i] <= K) {
+		        // 현재 가치의 동전으로 구성할 수 있는 개수를 더해줌
+		        count += K / coin[i];
+		        K %= coin[i];
 		    }
-		    
 		}
 		
-		System.out.println(cnt);
+		System.out.println(count);
+		
 	}
+ 
 }
