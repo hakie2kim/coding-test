@@ -1,42 +1,51 @@
-import java.util.*;
-import java.io.*;
-
-class Main {
-    static Stack<Character> psStk;
-    static int T;
-
-    public static void main(String[] args) throws IOException{
-        // 입력 및 초기화
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        
-        T = Integer.parseInt(br.readLine());
-        
-        for (int i = 1; i <= T; i++) {
-            System.out.println(yesOrNo(br.readLine()));
-        }
-    
-        bw.close();
-        br.close();
-    }
-    
-    private static String yesOrNo(String ps) {
-        psStk = new Stack<>();
-        
-        for (char paren : ps.toCharArray()) {
-            if (paren == '(') {
-                psStk.push(paren);
-            } else if (psStk.isEmpty()) { // 닫는 괄호이고 빈 스택인 경우
-                return "NO";
-            } else { // 닫는 괄호이고 빈 스택이 아닌 경우
-                psStk.pop();
-            }
-        }
-            
-        if (psStk.isEmpty()) {
-            return "YES";
-        } else {
-            return "NO";
-        }
-    }
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.util.Stack;
+ 
+public class Main {
+ 
+	public static void main(String[] args) throws IOException {
+ 
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		
+		int T = Integer.parseInt(br.readLine());
+		
+		for(int i = 0; i < T; i++) {
+			sb.append(solve(br.readLine())).append('\n');
+		}
+		
+		System.out.println(sb);
+	}
+ 
+	public static String solve(String s) {
+ 
+		Stack<Character> stack = new Stack<>();
+ 
+		for (int i = 0; i < s.length(); i++) {
+		    char c = s.charAt(i);
+		    
+		    // 여는 괄호인 경우
+		    if (c == '(') {
+		        stack.push(c);
+		    }
+		    // 아래는 모두 닫는 괄호인 경우
+		    else if (stack.empty()) { // 스택이 비어있을 때 
+		        return "NO";
+		    }
+		    else { // 기존 여는 괄호를 제거
+		        stack.pop();
+		    }
+		}
+		
+		/* 스택의 잔여 요소가 
+		있으면 (=여는 괄호가 더 많은 경우) "NO" 
+		비어있으면 "YES" */
+		
+		if (stack.empty()) {
+		    return "YES";
+		} 
+		return "NO";
+	}
 }
